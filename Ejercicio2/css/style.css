@@ -1,0 +1,9 @@
+h1 {
+    color: teal;
+}
+p.btn-like{
+    cursor: pointer;
+}
+p.btn-like:hover{
+    color: red;
+}

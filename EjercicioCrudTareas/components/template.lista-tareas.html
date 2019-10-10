@@ -1,0 +1,48 @@
+<!-- Listado de Tareas-->
+<h2 class="mt-4">{{titulo}}</h2>
+<p ng-show="tareas.length == 0">Cargando tareas...</p>
+<p class="text-warning">{{mensajeValidacion}}</p>
+
+<div class="border p-2 mb-2 bg-light">
+    <input type="text" ng-model="nuevaTarea" ng-focus="true" autofocus class="form-control-lg mb-2" placeholder="Descripcion de la tarea">
+    <button class="btn btn-primary mb-2" ng-click="crearTarea()"><i class="fas fa-plus"></i></button>
+</div>
+<div class="border p-2 mb-2 bg-light">
+    <input type="text" ng-model="busqueda.descripcion" autofocus class="form-control-lg mb-2" placeholder="Buscar por nombre">
+    <button class="btn btn-success mb-2" ng-click=""><i class="fas fa-search"></i></button>
+    <p class="text-danger">{{mensajeValidacion}}</p>
+</div>
+<div class="border p-2 mb-2 bg-light">
+    <input type="radio" ng-model="busqueda.completada" ng-checked="true" value=""> Todos
+    <input type="radio" ng-model="busqueda.completada" value="true"> Completadas
+    <input type="radio" ng-model="busqueda.completada" value="false"> No Completadas
+</div>
+
+<ul class="list-group">
+         
+    <li class="list-group-item" ng-repeat="item in tareas | filter:busqueda">
+          
+        <span class="badge badge-pill {{(!item.completada)?'badge-primary':'badge-secondary'}}" ng-hide="mostrarEditar">{{item.id}}
+            <input type="checkbox" class="ml-2" ng-checked="{{item.completada}}" ng-click="completarTarea(item)" size="40">
+        </span>
+      
+        <input type="text" 
+            ng-model="item.descripcion" 
+            class="form-control {{(!mostrarEditar)?'no-editable':''}} {{(item.completada)?'tachado':''}}"
+            ng-readonly="!mostrarEditar"
+        >
+        <div ng-show="mostrarEditar">
+            <button ng-click="modificarDescripcion(item)" class="btn btn-primary">Guardar</button>
+            <button ng-click="mostrarEditar= !mostrarEditar; item.descripcion = oldDescription" class="btn btn-danger">Cancelar</button>
+        </div>
+        
+        <div class="eliminar-content">
+            <button ng-show="mostrar" ng-click="eliminar(item)" class="bg-danger">Pulsa para eliminar</button>
+            <i ng-click="mostrar= !mostrar" class="fas fa-trash-alt"></i>
+        </div>
+        <i ng-click="mostrarEditar= !mostrarEditar; oldDescription = item.descripcion" class="fas fa-pencil-alt"></i>
+        
+    </li>
+    
+</ul>
+<!-- End Listado de Tareas-->

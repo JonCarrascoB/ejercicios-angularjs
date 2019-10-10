@@ -1,0 +1,73 @@
+
+body {
+    background-color: aquamarine;
+    
+}
+.listG{
+    background-color: white;
+    border-top-right-radius: 5%;
+    border-bottom-right-radius: 5%;
+}
+.lista{
+    background-color: white;
+
+}
+.border {
+    align-content: center;
+}
+.lista h2,p {
+    text-align: center;
+    
+}
+.lista p {
+    color:teal;
+}
+.lista li{
+    border-radius: 5%;
+}
+.tachado{
+    text-decoration: line-through;
+    color: gray;
+}
+.imgG{
+    background-image: url(../img/escritorio.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.fa-trash-alt{
+    color: red;
+    float: right;
+}
+.fa-pencil-alt{
+    color: teal;
+    float: right;
+    margin-right: 20px;
+
+}
+.fa-pencil-alt:hover{
+    color: grey;
+}
+.fa-trash-alt:hover{
+    color: grey;
+}
+.fas:hover{
+    font-size: 1.5em;
+    cursor: pointer;
+}
+.eliminar-content{
+    position: relative;
+}
+.eliminar-content button{
+    padding: 5px;
+    position: absolute;
+    border:1px solid red;
+    right: -10px;
+    top: -50px;
+    background-color: #FFF;
+}
+.no-editable{
+    border:none;
+}
+.intext{
+    size: 40px;
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="InicialApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Script angular principal-->
+    <script src="js/lib/angular.min.js"></script>
+    <script src="js/app.js"></script>
+
+    <!-- styles externos, bootStramp, fontAwesome,... -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <!-- syles propios -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <title>Document</title>
+</head>
+<body>
+    <main class="container">
+        <div ng-controller="profesorCtrl">
+            <h2>{{profesor[0].nombre}}</h2>
+            <div class="row mb-3" >
+                <div class="col-3">
+                    <img ng-src="{{profesor[0].img}}" alt="{{profesor[0].nombre}}" class="rounded-circle">
+                </div>
+                <div class="col-9">
+                    <p><strong>Asignatura que imparte:</strong> {{profesor[0].clase}}</p>
+                    <p><strong>Edad:</strong> {{profesor[0].edad}} años</p>
+                    <p><strong>Biografia:</strong> {{profesor[0].clase}}</p>
+                </div>
+            </div>
+            <button class="btn btn-primary mb-2" ng-click="editar()">Editar</button>
+            <form>
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" class="form-control" ng-model="editando.nombre" id="nombre">
+                </div>
+                <div class="form-group">
+                    <label for="edad">Edad:</label>
+                    <input type="text" class="form-control" ng-model="editando.edad" id="edad">
+                </div>
+                <div class="form-group">
+                    <label for="bio">Biografia:</label>
+                    <textarea class="form-control" ng-model="editando.bio" id="bio"></textarea>
+                </div>
+                <button class="btn btn-danger" ng-click="cancelar()">Eliminar</button>
+                <button class="btn btn-success" ng-click="guardar()">Guardar</button>
+            </form>
+            
+        </div>
+
+
+    </main>
+</body>
+</html>

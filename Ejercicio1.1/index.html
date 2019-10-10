@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="universidadApp"> <!-- directiva para indicar que es una App de angular -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Angular JS -->
+    <script src="js/angular.min.js"></script>
+    <script src="js/app.js"></script>
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>{{"Welcome to the Hell - Angular JS" | uppercase}}</h1> <!-- |, conocido como pipe, indica que es un filtro -->
+    <div class="container">
+        <div class="row">
+        <h2>{{"Ejemplos de filtros"}}</h2>
+        <a href="https://docs.angularjs.org/api/ng/filter" target="_blank">Documentacion de la API</a>
+        <ul class="list-group">
+            <li class="list-group-item">uppercase => {{"uPpErCaSe" | uppercase}}</li>
+            <li class="list-group-item">lowercase => {{"MAYUSCULAS" | lowercase}}</li>
+            <li class="list-group-item">currency => {{22632.56 | currency:"€"}}</li>
+            <li class="list-group-item">number => {{22632.5621 | number}}</li>
+            <li class="list-group-item">date => {{'20191003T0940' | date:"dd/MM/yyyy 'at' h:mma"}}</li>
+          </ul>
+        
+          <h2>Directiva ng-model</h2>
+          <!-- Directiva para definir un parametro o una variable-->
+          <p>
+              Su nombre: {{nombre|uppercase}}
+              <input type="text" ng-model="nombre" class="form-control" placeholder="Dime tu nombre">
+              La fecha de hoy: {{fecha|date:"dd/MM/yyyy 'at' h:mma"}}
+              <input type="text" ng-model="fecha" class="form-control" placeholder="Inserta la fecha">
+          </p>
+          <p>
+              Selecione su pais: {{pais}}
+              <select class="form-control" ng-model="pais">
+                    <option value="ES" >España</option>
+                    <option value="EU">Europa</option>
+                    <option value="US">EEUU</option>
+              </select>
+          </p>
+          <p>
+              Selecione las opciones que quiera: {{o1}} {{o2}} {{o3}} {{o4}} <br>
+              <input type="checkbox" ng-model="o1"> Musica <br>
+              <input type="checkbox" ng-model="o2"> Surf <br>
+              <input type="checkbox" ng-model="o3"> Bromas <br>
+              <input type="checkbox" ng-model="o4"> Caidas 
+          </p>
+          <p>
+              Seleccione el genero: {{genero}} <br>
+              <input type="radio" ng-model="genero" value="M"> Masculino <br>
+              <input type="radio" ng-model="genero" value="F"> Femenino <br>
+              <input type="radio" ng-model="genero" value="I"> Indefinido
+          </p>
+        </div>
+        <div class="row">
+            
+        </div>
+
+    </div>
+
+
+
+
+
+</body>
+</html>

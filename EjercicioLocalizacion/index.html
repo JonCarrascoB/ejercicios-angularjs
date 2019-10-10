@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="componentesApp">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>http-request</title>
+
+        <!-- Incluir AngularJS -->
+        <script src="js/lib/angular1.3.min.js"></script>
+
+        <script src="js/app.js"></script>
+
+        <!-- Estilos bootstrap y fontawesome -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+
+        <!-- animated -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+        <!-- Estilos propios -->
+        <link rel="stylesheet" href="css/styles.css">
+
+        
+    </head>    
+    <body>
+
+        <div class="container" ng-controller="mainCtrl">
+            
+            <h1>Ejercicio de localizacion</h1>
+            <p>Obtenemos los datos de geolocalizacion de un servicio externo, usando datos en <b>JSONP</b></p>
+            <p>Servicio de URL: <a href="{{SERVICE_URL}}">{{SERVICE_URL}}</a></p>
+            <hr>
+            
+            <button class="btn btn-primary" ng-click="localizar()">Localizame</button>
+            <div class="row" ng-hide="mostrar">
+                <div class="col-3 mt-2">
+                    <ul class="list-group">
+                        <li class="list-group-item">Ip: {{loc.geoplugin_request}}</li>
+                        <li class="list-group-item">Ciudad: {{loc.geoplugin_city}}</li>
+                        <li class="list-group-item">Region: {{loc.geoplugin_region}}</li>
+                        <li class="list-group-item">Latitud: {{loc.geoplugin_latitude}}</li>
+                        <li class="list-group-item">Longitud: {{loc.geoplugin_longitude}}</li>
+                        <li class="list-group-item">Moneda: {{loc.geoplugin_currencySymbol}}</li>
+                      </ul>
+                </div>
+                <div class="col-9">
+                    <a target="_blank" href="https://developers-dot-devsite-v2-prod.appspot.com/maps/documentation/javascript/examples/marker-simple">Documentacion Oficial</a>
+                    <div id="map"></div> 
+                </div>
+            </div>
+            
+        </div>
+
+          <!-- google Maps -solo para desarrollo, para produccion obtener -->
+          <script async defer src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap"></script>
+    </body>
+</html>

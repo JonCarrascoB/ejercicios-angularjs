@@ -1,0 +1,60 @@
+<h2>Fruteria <b>IparFruits</b></h2>
+
+    <form>
+        <div class="form-group">
+            <label for="busqueda">Filtros:</label>
+            <input type="text" class="form-control" ng-model="busqueda.nombre" id="busqueda" placeholder="Tu busqueda">
+                
+            <select ng-model="busqueda.color" class="form-control">
+                <option value="">Todos</option>
+                <option value="rojo">Rojo</option>
+                <option value="verde">Verde</option>
+                <option value="marron">Marron</option>
+                <option value="naranja">Naranja</option>
+                <option value="amarillo">Amarillo</option>
+            </select>
+        </div>
+    </form>
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr class="text-center">
+                <th scope="col">Imagen</th>
+                <th scope="col" ng-click="filtro('nombre')">Fruta <i class="fas {{flechaN}} "></i></th>
+                <th scope="col" ng-click="filtro('precio')">Precio <i class="fas {{flechaP}}"></i></th>
+                <th scope="col">Cantidad</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="text-center" ng-repeat="fj in visualizar | filter:busqueda | orderBy:columna:orden">
+                <td class="align-middle"><img ng-src="{{fj.img}}" alt="{{fj.nombre}}"></td>
+                <td class="align-middle">{{fj.nombre}}</td>
+                <td class="align-middle">{{fj.precio | currency}}/Kg</td>
+                <td class="align-middle">
+                    <button class="btn btn-primary" ng-click="restar(fj)"><i class="fas fa-minus"></i></button>
+                        {{fj.cantidad}}
+                    <button class="btn btn-primary" ng-click="sumar(fj)"><i class="fas fa-plus"></i></button>
+                </td>
+                <td class="align-middle"><button class="btn btn-success" ng-click="comprar(fj)"><i class="fas fa-shopping-cart"></i></button></td>        
+            </tr>
+            <tr class="text-center">
+                <td class="align-middle text-right" colspan="2">TOTAL</td>
+                <td class="align-middle text-left" colspan="2">{{total | currency}}</td>
+                <td class="align-middle"><button class="btn btn-danger" ng-click="borrar()"><i class="fas fa-trash-alt"></i></button></td>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            <li class="page-item" ng-show="(itemInicial>0)?true:false"><a class="page-link" ng-click="paginacionAnt()" >Anterior</a></li>
+            {{nPag | number:0}}
+            <li class="page-item" ng-repeat="page in nPag | number: 0 | | limitTo: itemPag"><a class="page-link" ng-click="irPag(0,5)">1</a></li>
+            
+
+            <li class="page-item" ng-show="(itemFinal<totalItems)?true:false"><a class="page-link" ng-click="paginacionSig()">Siguiente</a></li>
+        </ul>
+    </nav>
+   
+ <!-- /end frutasCtrl-->

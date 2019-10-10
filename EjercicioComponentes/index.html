@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="componentesApp"> <!-- directiva para indicar que es una App de angular -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Angular JS -->
+    <script src="js/lib/angular.min.js"></script>
+    <script src="//code.angularjs.org/1.2.23/i18n/angular-locale_es-us.js"></script>
+
+    <!-- Componentes de aplicacion -->
+    <script src="js/app.js"></script>
+    <!-- componentes + html -->
+    <script src="components/boton/componente-boton.js"></script>
+    <script src="components/notas/componente-calificacion.js"></script>
+    <!-- Componentes mezclados -->
+    <script src="js/componente-saludar.js"></script>
+    <script src="js/phone-list.component.js"></script>
+
+    <!-- Estilos bootstrap y fontawesome -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+
+    <!-- animated -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+    <!-- Estilos propios -->
+    <link rel="stylesheet" href="css/style.css">
+    <title>Ejercicio Componentes</title>
+</head>
+<body>
+    <main class="container">
+        <h1>Ejercicio Componentes</h1>
+
+        <a href="https://docs.angularjs.org/tutorial/step_03" target='_blank'>1. Tutorial oficial - Componentes</a> <br>
+        <a href="https://docs.angularjs.org/guide/component" target='_blank'>2. Documentacion oficial - Componentes</a> <br>
+
+        <p>Nuestro primer componente:</p>
+        <saludo-usuario></saludo-usuario>
+        <hr>
+        <p>Nuestro segundo componente con template para HTML</p>
+        <componente-boton></componente-boton>
+        <hr>
+        <p>Nuestro componente para la calificacion del curso</p>
+        <componente-calificacion pnota="5"></componente-calificacion>
+        <hr>
+        <h3>Calificaciones de Pepe</h3>
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th scope="row">#</th>
+                    <th scope="col">Asignatura</th>
+                    <th scope="col">Nota</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>HTML</td>
+                    <td><componente-calificacion pnota="5"></componente-calificacion></td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>CSS</td>
+                    <td><componente-calificacion pnota="7"></componente-calificacion></td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>JS</td>
+                    <td><componente-calificacion pnota="3"></componente-calificacion></td>
+                </tr>
+                <tr>
+                    <th scope="row">4</th>
+                    <td>Angular JS</td>
+                    <td><componente-calificacion pnota="8"></componente-calificacion></td>
+                </tr>
+            </tbody>
+        </table>
+        <hr>
+        <h2>Listado telefonos</h2>
+        <phone-list></phone-list>
+    </main>
+</body>
+</html>

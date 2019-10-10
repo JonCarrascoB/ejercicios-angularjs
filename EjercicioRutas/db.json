@@ -1,0 +1,150 @@
+{
+  "tareas": [
+    {
+      "id": 1,
+      "completada": true,
+      "descripcion": "Tomar cafe a las 11:00 AM"
+    },
+    {
+      "id": 2,
+      "completada": true,
+      "descripcion": "Ejemplo Componentes"
+    },
+    {
+      "id": 3,
+      "completada": true,
+      "descripcion": "Poner bonita imagen de fondo con css"
+    },
+    {
+      "id": 4,
+      "completada": false,
+      "descripcion": "Poner focus al input despues de pulsar boton"
+    },
+    {
+      "completada": false,
+      "descripcion": "Mirar como no revcargar la pagina",
+      "id": 10
+    },
+    {
+      "id": 11,
+      "completada": true,
+      "descripcion": "icono para eliminar"
+    },
+    {
+      "id": 12,
+      "completada": true,
+      "descripcion": "checkbutton alado de la tarea para marcar si esta o no terminada"
+    },
+    {
+      "id": 13,
+      "completada": true,
+      "descripcion": "filtrar tareas por nombre"
+    },
+    {
+      "id": 14,
+      "completada": true,
+      "descripcion": "filtrar por completadas o No compleatdas"
+    },
+    {
+      "id": 15,
+      "completada": true,
+      "descripcion": "entender lo que escribooooooooooo"
+    }
+  ],
+  "frutas":[
+    {
+      "nombre" : "Manzana",
+      "img" : "https://supermercado.eroski.es/images/2388676.jpg",
+      "precio": 3.25,
+      "cantidad": 0,
+      "color": "rojo"
+    },
+    {
+      "nombre" : "Pera",
+      "img" : "https://supermercado.eroski.es/images/17210.jpg",
+      "precio": 2.68,
+      "cantidad": 0,
+      "color": "verde"
+    },
+    {
+      "nombre" : "Fresa",
+      "img" : "https://supermercado.eroski.es/images/17640137.jpg",
+      "precio": 6.98,
+      "cantidad": 0,
+      "color": "rojo"
+    },
+    {
+      "nombre" : "Platano",
+      "img" : "https://supermercado.eroski.es/images/16624629.jpg",
+      "precio": 2.79,
+      "cantidad": 0,
+      "color": "amarillo"
+    },
+    {
+      "nombre" : "Kiwi",
+      "img" : "https://supermercado.eroski.es/images/12063319.jpg",
+      "precio": 1.00,
+      "cantidad": 0,
+      "color": "marron"
+    },
+    {
+      "nombre" : "Mandarina",
+      "img" : "https://supermercado.eroski.es/images/489831.jpg",
+      "precio": 1.99,
+      "cantidad": 0,
+      "color": "naranja"
+    },
+    {
+      "nombre" : "Aguacate",
+      "img" : "https://supermercado.eroski.es/images/18374611.jpg",
+      "precio": 3.00,
+      "cantidad": 0,
+      "color": "marron"
+    },
+    {
+      "nombre" : "Limon",
+      "img" : "https://supermercado.eroski.es/images/12782066.jpg",
+      "precio": 1.18,
+      "cantidad": 0,
+      "color": "amarillo"
+    },
+    {
+      "nombre" : "Naranja",
+      "img" : "https://supermercado.eroski.es/images/12781654.jpg",
+      "precio": 1.58,
+      "cantidad": 0,
+      "color": "naranja"
+    },
+    {
+      "nombre" : "Lima",
+      "img" : "https://supermercado.eroski.es/images/56515.jpg",
+      "precio": 1.75,
+      "cantidad": 0,
+      "color": "verde"
+    },
+    {
+      "nombre" : "Sandia",
+      "img" : "https://supermercado.eroski.es/images/6698781.jpg",
+      "precio": 0.69,
+      "cantidad": 0,
+      "color": "verde"
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

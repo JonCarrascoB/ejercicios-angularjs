@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="ejemplosApp">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>http-request</title>
+
+        <!-- Incluir AngularJS -->
+        <script src="js/lib/angular.min.js"></script>
+
+        <script src="js/app.js"></script>
+
+        <!-- Estilos bootstrap y fontawesome -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+
+        <!-- animated -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+        <!-- Estilos propios -->
+        <link rel="stylesheet" href="css/style.css">
+
+    </head>    
+    <body>
+
+        <div class="container" ng-controller="mainCtrl">
+            
+            <h1>$HTTP Request</h1>
+            <h4>Data dinámica</h4>
+            <p>Debemos inyectar la variable <code>$http</code> en el controlador</p>
+            <p>Recordar que las peticiones son por ajax y <b>asincronas</b></p>
+            <p>Mirar las trazas de Console</p>
+            <p>Interesante usar las herramientas de desarrollo de chrome de Networks (XHR)</p>
+            <hr>
+            
+            <div ng-hide="ocultar" class="alert alert-primary" role="alert">
+                Cargando datos asincronamente......
+              </div>
+            {{profesores}}
+
+
+
+
+        </div><!-- fin del listadoCtrl -->
+
+    </body>
+</html>

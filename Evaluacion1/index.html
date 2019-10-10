@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" ng-app> <!-- directiva para indicar que es una App de angular -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Angular JS -->
+    <script src="js/angular.min.js"></script>
+    <script src="//code.angularjs.org/1.2.23/i18n/angular-locale_es-us.js"></script>
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1>{{"Evaluacion 1: Angular JS" | uppercase}}</h1>
+        <p>
+              Nombre Completo: 
+              <input type="text" ng-model="nombre" class="form-control" placeholder="Dime tu nombre">
+        </p>
+        <p>
+            Su lugar de trabajo: 
+            <input type="text" ng-model="lugar" class="form-control" placeholder="Dime tu lugar de trabajo">
+        </p>
+        <p>
+            Salario: 
+            <input type="text" ng-model="salario" class="form-control" placeholder="Dime tu salario en euros">
+        </p>
+        <p>
+              Su nombre: {{nombre|uppercase}} <br>
+              Su lugar de trabajo: {{lugar|lowercase}} <br>
+              Su salario es: {{salario|currency}}
+        </p>
+    </div>
+</body>
+</html>
