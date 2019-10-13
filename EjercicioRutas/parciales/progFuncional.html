@@ -1,0 +1,82 @@
+<h1>Programcion Funcional</h1>
+<div class="row text-center" ng-controller="frutasCtrl">
+    <div class="col">
+        <h2>Filter</h2>
+        <img src="https://miro.medium.com/max/1257/1*TOPYVvfMBmjajPh-fqZ9GQ.gif" alt="ExampleFilter" class="img-thumbnail">
+        <h2>Ejemplos de filtros:</h2>
+        <p><b>1. Precios > 3€</b>, por nombres de frutas</p>
+        <p><code>$scope.filtro = response.data.filter(e => e.precio > 3).map(e => e.nombre);</code></p>
+        <p>Resultado:</p>
+        <ul class="list-group" ng-repeat="fruta in filtro">
+            <li class="list-group-item">{{fruta}}</li>
+        </ul>
+
+    </div>
+    <div class="col">
+        <h2>Map</h2>
+        <img src="https://miro.medium.com/max/1257/1*4EGwsCicbWJeml2aAm714A.gif" alt="ExampleMap" class="img-thumbnail">
+        <h2>Ejemplos de mapeos:</h2>
+        <p><b>1. Seleccionar por color verde</b></p>
+        <p><code>$scope.mapa = response.data.map(e => e.nombre);</code></p>
+        <p>Resultado:</p>
+        <ul class="list-group" ng-repeat="m in mapa">
+            <li class="list-group-item">{{m}}</li>
+        </ul>
+    
+    </div>
+    <div class="col">
+        <h2>Reduce</h2>
+        <img src="https://miro.medium.com/max/1257/1*dhTC_FFgiH3mKROrnDj12w.gif" alt="ExampleReduce" class="img-thumbnail">
+        <h2>Ejemplos de reduce:</h2>
+        <p><b>1. Obtener el valor total de los precios de las frutas</b></p>
+        <p><code>$scope.reducion = response.data.map(e=>e.precio).reduce((pv,cv)=>pv+cv);</code></p>
+        <p>Resultado: {{reducion | currency}}</p>
+    
+    </div>
+</div>
+<h2>Ejercicio Real con contratos</h2>
+<div class="row text-center">
+    <p>Para poder  jugar con filter y map se se puede pedir que:</p>
+    <ol>
+        <li>Obtengan todos los contratos cuyo campo TIPPRODUCT tenga un valor determinado, por ejemplo “KT” (filter)</li>
+        <li>Obtengan un nuevo array en el que cada elemento contenga el código de contrato concatenado con el digito de control (campos codCONTRAT y digContrat), además del saldo en euros (campo SALCONTRAT dividido entre 100) (map)</li>
+        <li>Obtengan todos los contratos que en su campo acciones contengan la clave “SITUACION” (filter por la subestructura)</li>
+        <li>Obtengan un array que contenga todas las acciones posibles (map y spread)</li>
+        <li>Combinaciones de las anteriores, etc</li>
+    </ol>	
+    <p class="text-danger">En todo lo anterior no pueden usar bucles for ni foreach, por supuesto </p>
+</div>
+<div class="row text-center" ng-controller="contratosController">
+    <div class="border p-2 mb-2 bg-light">
+        Contratos Totales: {{contratos.length}} <br>
+        1: {{filtro1.length}} <br>
+        2: {{contratoConcat.length}}<br>
+        3: {{accionContrato.length}}<br>
+        4: <br>
+        5: <br>
+        6: <br>
+    </div>
+    <div class="border p-2 mb-2 bg-light">
+        <p><b>1. Todos los contratos con TIPPPRODUCT</b> con valor KT</p>
+        <ul class="list-group" ng-repeat="kt in filtro1">
+            <li class="list-group-item">{{kt}}</li>
+        </ul>
+    </div>
+    <div class="border p-2 mb-2 bg-light">
+        <p><b>2. campos codCONTRAT y digContrat </b> mas valor del sueldo</p>
+        {{contratoConcat}}
+    </div>
+    <div class="border p-2 mb-2 bg-light">
+        <p><b>3. campos accion “SITUACION” </b> (filter con subestructura)</p>
+        {{accionContrato}}
+
+    </div>
+    <div class="border p-2 mb-2 bg-light">
+        <p><b>4. Acciones posibles </b> (map y spread)</p>
+    </div>
+    <div class="border p-2 mb-2 bg-light">
+        <p><b>5. OTROS </b> </p>
+    </div>
+
+
+</div>

@@ -1,3 +1,11 @@
 body {
   padding-top: 50px;
 }
+table img {
+  width: 100px;
+  height: auto;
+}
+table th.selected{
+  color: orangered;
+  
+}

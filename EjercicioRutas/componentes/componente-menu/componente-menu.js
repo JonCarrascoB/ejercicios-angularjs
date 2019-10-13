@@ -35,6 +35,12 @@ angular.
           "url":"#!/creditos",
           "active": false,
           "icono": "fab fa-creative-commons"
+        },
+        {
+          "nombre": "Filter, Map, Reduce",
+          "url":"#!/progFuncional",
+          "active": false,
+          "icono": "fas fa-filter"
         }
       ];
     

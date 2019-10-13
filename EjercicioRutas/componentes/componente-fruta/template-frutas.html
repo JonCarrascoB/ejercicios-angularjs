@@ -1,17 +1,17 @@
 <h2>Fruteria <b>IparFruits</b></h2>
 
+    Frutas precio > 2€ y nonbre: {{nombre2e}} <br>
+    Precios totales: {{totalG|currency}} <br>
+    Precio total para frutas con precios superiores a 3€: {{total3G | currency}} <br>
+    Colores filtrados : {{colores}}
     <form>
         <div class="form-group">
             <label for="busqueda">Filtros:</label>
             <input type="text" class="form-control" ng-model="busqueda.nombre" id="busqueda" placeholder="Tu busqueda">
                 
             <select ng-model="busqueda.color" class="form-control">
-                <option value="">Todos</option>
-                <option value="rojo">Rojo</option>
-                <option value="verde">Verde</option>
-                <option value="marron">Marron</option>
-                <option value="naranja">Naranja</option>
-                <option value="amarillo">Amarillo</option>
+                <option value="">Selecciona color</option>
+                <option ng-repeat="color in colores" value="{{color}}">{{color}}</option>
             </select>
         </div>
     </form>
@@ -27,7 +27,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr class="text-center" ng-repeat="fj in visualizar | filter:busqueda | orderBy:columna:orden">
+            <tr class="text-center" ng-repeat="fj in frutas  | filter:busqueda |  limitTo: itemPag : itemInicial | orderBy:columna:orden">
                 <td class="align-middle"><img ng-src="{{fj.img}}" alt="{{fj.nombre}}"></td>
                 <td class="align-middle">{{fj.nombre}}</td>
                 <td class="align-middle">{{fj.precio | currency}}/Kg</td>
@@ -49,12 +49,12 @@
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
             <li class="page-item" ng-show="(itemInicial>0)?true:false"><a class="page-link" ng-click="paginacionAnt()" >Anterior</a></li>
-            {{nPag | number:0}}
-            <li class="page-item" ng-repeat="page in nPag | number: 0 | | limitTo: itemPag"><a class="page-link" ng-click="irPag(0,5)">1</a></li>
-            
 
+            <li class="page-item" ng-repeat="page in nPag "><a class="page-link" ng-click="irPag(0,5)">1</a></li>
+        
             <li class="page-item" ng-show="(itemFinal<totalItems)?true:false"><a class="page-link" ng-click="paginacionSig()">Siguiente</a></li>
         </ul>
     </nav>
-   
+    {{nPag | number:0}}
+    
  <!-- /end frutasCtrl-->

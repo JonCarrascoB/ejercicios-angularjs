@@ -14,6 +14,10 @@ var app = angular.module('angularApp').
             $scope.flechaP = "fa-minus";
             $scope.frutas = [];
             $scope.visualizar = [];
+            $scope.colores = [];
+            $scope.nombre2e = [];
+            $scope.totalG = 0;
+            $scope.total3G = 0;
             $scope.itemInicial = 0;
             $scope.itemPag = 5;
             $scope.itemFinal = $scope.itemPag;
@@ -30,6 +34,14 @@ var app = angular.module('angularApp').
                 $http.get($scope.ENDPOINT).then(function(response){ // success antiguo
                     console.trace('peticion GET a %s data=%o', $scope.ENDPOINT, response);
                     $scope.frutas = response.data;
+                    $scope.colores = response.data.map(elem => elem.color).filter((v,i,a)=>
+                    {
+                        return a.indexOf(v) ===i;
+                    });
+                    $scope.nombre2e = response.data.filter(e => e.precio >2).map(e => e.nombre);
+                    $scope.totalG = response.data.map(e=>e.precio).reduce((pv,cv)=>pv+cv);
+                    $scope.total3G = response.data.filter(e=>e.precio>3).map(e=>e.precio).reduce((pv,cv)=>pv+cv);
+
                     $scope.visualizar = $scope.frutas.slice($scope.itemInicial, $scope.itemFinal);
                     $scope.totalItems = $scope.frutas.length;
                     console.trace('totalItems= %o', $scope.totalItems);
