@@ -41,6 +41,12 @@ angular.
           "url":"#!/progFuncional",
           "active": false,
           "icono": "fas fa-filter"
+        },
+        {
+          "nombre": "Promesas",
+          "url":"#!/promesa",
+          "active": false,
+          "icono": "fas fa-pray"
         }
       ];
     

@@ -1,4 +1,11 @@
-var app = angular.module('angularApp',['ngRoute', 'ngSanitize']);
+var app = angular.module('angularApp',
+    [ 
+        'ngRoute', 
+        'ngSanitize', 
+        'angularApp.controladores',
+        'angularApp.servicios'
+    ]
+);
 
 app.controller('mainCtrl', ['$scope','$http', function($scope,$http){
 

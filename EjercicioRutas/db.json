@@ -130,6 +130,28 @@
       "color": "verde"
     }
   ],
+  "personas": [
+    {
+      "edad": 35,
+      "nombre": "Cabrera Haney"
+    },
+    {
+      "edad": 26,
+      "nombre": "Erica Morgan"
+    },
+    {
+      "edad": 21,
+      "nombre": "Traci Weeks"
+    },
+    {
+      "edad": 35,
+      "nombre": "Camille Kirk"
+    },
+    {
+      "edad": 23,
+      "nombre": "Palmer Rosario"
+    }
+  ],
   "contratos":[
     {
       "DESAGRUP": "",
