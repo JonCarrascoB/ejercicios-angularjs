@@ -47,6 +47,18 @@ angular.
           "url":"#!/promesa",
           "active": false,
           "icono": "fas fa-pray"
+        },
+        {
+          "nombre": "Servicios",
+          "url":"#!/servicios",
+          "active": false,
+          "icono": "fas fa-concierge-bell"
+        },
+        {
+          "nombre": "Canciones",
+          "url":"#!/canciones",
+          "active": false,
+          "icono": "fas fa-music"
         }
       ];
     

@@ -1,0 +1,42 @@
+<div ng-controller="cancionesController">
+    <h2>{{titulo}}</h2>
+
+     {{ canciones | json }}
+
+     <h3>TODO</h3>
+     <ol>
+         <li>Pintar datos en Tabla</li>
+         <li>Formulario para crear nuevas canciones</li>
+         <li>Boton papelera para eliminar</li>
+         <li>Poder Modificar una cancion</li>
+         <li>Interesante para repaso Filtros y Ordenacion</li>
+     </ol>
+
+     <form>
+        <div class="form-group">
+            <label for="busqueda">Busqueda:</label>
+            <input type="text" class="form-control" ng-model="busqueda.nombre" id="busqueda" placeholder="Tu busqueda">
+        </div>
+    </form> 
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col" ng-click="filtro('id')">ID <i class="fas {{flechaId}}"></i></th>
+                <th scope="col" ng-click="filtro('nombre')">Nombre <i class="fas {{flechaN}}"></i></th>
+                <th scope="col"></th>
+                <th scope="col"></th>           
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="cancion in canciones | filter: busqueda | orderBy:columna:orden">
+                <td>{{cancion.id}}</td>
+                <td>{{cancion.nombre}}</td>
+                <td class="align-middle"><button class="btn btn-danger" ng-click="modificar({{cancion.id}})"><i class="fas fa-exchange-alt"></i></button></td>
+                <td class="align-middle"><button class="btn btn-danger" ng-click="eliminar({{cancion.id}})"><i class="fas fa-trash-alt"></i></button></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+</div>

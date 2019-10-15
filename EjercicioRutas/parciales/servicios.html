@@ -1,0 +1,43 @@
+<div ng-controller="serviciosCtrl">
+    
+    <h1>Servicios {{constantes.titulo}}</h1>
+    <p>AngularJS tiene realmente 5 tipos distintos de servicios:</p>
+    <ol>
+        <li>Constantes</li>
+        <li>Valores</li>
+        <li>Servicios</li>
+        <li>Factorias</li>
+        <li>Proveedores</li>
+    </ol>
+    <p>Los nombres de los servicios deben seguir la misma nomenclatura que los nombre de las variables. Es decir que la primera palabra debe ser en minúscula y el resto de palabras deben empezar en mayúscula <b>CamelCase</b>.</p>
+        
+    <div class="card">
+        <h5 class="card-header">Constantes<a class="float-right" href="http://cursoangularjs.es/doku.php?id=unidades:03_servicios:05_constant" target="_blank">Curso Angular JS</a></h5>
+        <div class="card-body">
+            <p class="card-text">Mirar <b>app.js</b> para ver como se define el servicio de constantes.</p>
+            <p class="card-text">Para mostrar en HTML crear una variable dentro del controlador</p>
+            <p class="card-text"><pre>{{constantes | json}}</pre></p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h5 class="card-header">Values<a class="float-right" href="http://cursoangularjs.es/doku.php?id=unidades:03_servicios:06_value" target="_blank">Curso Angular JS</a></h5>
+        <div class="card-body">
+            <p class="card-text">Parecido a las constantes, pero con valores que podrían cambiar, como por ejemplo el Euribor.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h5 class="card-header">Services<a class="float-right" href="http://cursoangularjs.es/doku.php?id=unidades:03_servicios:07_service" target="_blank">Curso Angular JS</a></h5>
+        <div class="card-body">
+            <p class="card-text">Mirar <b>app.js</b> para ver como se define el servicio de Service.</p>
+            <p class="card-text">Hay que definir una clase para usar este tipo de servicio, y no valores o constantes</p>
+            <p class="card-text">El area de un rectangulo de ancho = {{ancho}} y alto = {{alto}} es de: {{area}}</p>
+            <p class="card-text">Ha su vez se puede crear una clase con parametros introducidos desde un servicio Value</p>
+            <p class="card-text">El area del rectangulo2 (ancho 5 y alto 6) es de {{area2}}</p>
+        </div>
+    </div>
+
+
+
+</div>

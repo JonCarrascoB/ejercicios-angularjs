@@ -22,6 +22,10 @@
         <script src="js/lib/angular-sanitize1.7.8.min.js"></script>
         <script src="//code.angularjs.org/1.2.23/i18n/angular-locale_es-us.js"></script>
 
+        <!-- Servicios o providers -->
+        <script src="js/providers/cancionProvider.js"></script>
+
+        <!-- Nuestros JavaScripts para la app -->
         <script src="js/app.js"></script>
         <script src="js/config.js"></script>
         
@@ -29,14 +33,16 @@
         <script src="js/controller-frutas.js"></script>
         <script src="js/contratosController.js"></script>
         <script src="js/promesaController.js"></script>
-        <script src="js/controladores.js"></script>
-        <script src="js/servicios.js"></script>
+        <script src="js/serviciosController.js"></script>
+        <script src="js/cancionesController.js"></script>
+        <script src="js/mainController.js"></script>
 
         <!-- Componentes -->
         <script src="componentes/boton/componente-boton.js"></script>
         <script src="componentes/componente-menu/componente-menu.js"></script>
         <script src="componentes/componente-fruta/componente-fruta.js"></script>
         <script src="componentes/alert/componente-alert.js"></script>
+        <script src="componentes/componente-footer/componente-footer.js"></script>
 
     </head>
     <body>
@@ -46,14 +52,17 @@
         <componente-alert clase="{{alerta.clase}}" texto="{{alerta.texto}}"></componente-alert>
         
 
-        <div class="container">
-        <!-- La pagina principal ira aquí -->
-        <div ng-view></div>
-
-
+        <div class="container mb-5 pb-4">
+            <!-- La pagina principal ira aquí -->
+            <div ng-view></div>
+    
+    
         </div><!-- /.container -->
+    
+    
+        <componente-footer></componente-footer>
 
-
+        <!-- Scrpts Bootstrap-->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>

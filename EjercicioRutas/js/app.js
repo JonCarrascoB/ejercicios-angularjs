@@ -1,35 +1,69 @@
-var app = angular.module('angularApp',
-    [ 
-        'ngRoute', 
-        'ngSanitize', 
-        'angularApp.controladores',
-        'angularApp.servicios'
-    ]
+var app = angular.module('angularApp', [ 'ngRoute', 'ngSanitize']);
+
+/**
+* Servicio para Constantes
+*/
+app.constant("servicioConstantes", {"titulo": "Angular JS",
+                                        "idioma": "es-ES",
+                                        "version": "1.0",
+                                        "autor": "Jon Carrasco",
+                                        "gitHub": "https://github.com/JonCarrascoB/ejercicios-angularjs"
+                                        }
 );
 
-app.controller('mainCtrl', ['$scope','$http', function($scope,$http){
+/**
+* Providers
+*/
 
-    this.$onInit = function(){
-        console.log('onInit mainCtrl');
+app.service("cancionProvider", CancionProvider);
 
-        $scope.alerta = {};
+/**
+* Servicio para values
+*/
 
-        // check para saver si el servicio rest esta levantado
-        let url = 'http://localhost:3000/frutas';
-        $http.get(url).then(function (result) {
-            console.trace('servicio rest funcionando', result);
-            $scope.alerta = {
-                "texto": "<strong>Yujuuuu</strong> Esta funcionando el servicio rest",
-                "clase": "success"
-            };
-        }).catch(function (response) {
-            console.warn('servicio rest fallando %o', response);
-            $scope.alerta = {
-                "texto": "<strong>Ohhhh</strong> no funciona el servicio rest",
-                "clase": "danger"
-            };
-        });
-      
-    };
+app.value("tamanyoInicialRectangulo",{
+    ancho:5,
+    alto:6
+});
 
-}]);
+/**
+* Ejemplo Servicio a traves de una clase
+*/
+//Clase rectangulo y rectangulo
+function Rectangulo() {
+    this.ancho=0;
+    this.alto=0;
+
+    this.setAncho=function(ancho) {
+        this.ancho=ancho;
+    }
+
+    this.setAlto=function(alto) {
+        this.alto=alto;
+    }  
+
+    this.getArea=function() {
+        return this.ancho * this.alto;
+    }
+}
+
+function Rectangulo2(tamanyoInicial) {
+    this.ancho=tamanyoInicial.ancho;
+    this.alto=tamanyoInicial.alto;
+
+    this.setAncho=function(ancho) {
+        this.ancho=ancho;
+    }
+
+    this.setAlto=function(alto) {
+        this.alto=alto;
+    }  
+
+    this.getArea=function() {
+        return this.ancho * this.alto;
+    }
+}
+
+// definir el servicio
+app.service("rectangulo2Service",['tamanyoInicialRectangulo',Rectangulo2]);
+app.service("rectanguloService",Rectangulo);
