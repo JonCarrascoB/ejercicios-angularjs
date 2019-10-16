@@ -36,6 +36,9 @@ app.config( function( $routeProvider ){
     .when('/canciones',{
       templateUrl: 'parciales/canciones.html'
     })
+    .when('/formularios',{
+      templateUrl: 'parciales/formulario.html'
+    })
     .otherwise({
       redirectTo: '/'
     })

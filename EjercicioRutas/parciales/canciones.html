@@ -5,11 +5,11 @@
 
      <h3>TODO</h3>
      <ol>
-         <li>Pintar datos en Tabla</li>
-         <li>Formulario para crear nuevas canciones</li>
-         <li>Boton papelera para eliminar</li>
-         <li>Poder Modificar una cancion</li>
-         <li>Interesante para repaso Filtros y Ordenacion</li>
+         <li style="text-decoration: line-through">Pintar datos en Tabla</li>
+         <li style="text-decoration: line-through">Formulario para crear nuevas canciones</li>
+         <li style="text-decoration: line-through">Boton papelera para eliminar</li>
+         <li style="text-decoration: line-through">Poder Modificar una cancion</li>
+         <li style="text-decoration: line-through">Interesante para repaso Filtros y Ordenacion</li>
      </ol>
 
      <form>
@@ -18,25 +18,32 @@
             <input type="text" class="form-control" ng-model="busqueda.nombre" id="busqueda" placeholder="Tu busqueda">
         </div>
     </form> 
-
-    <table class="table">
-        <thead class="thead-dark">
-            <tr>
-                <th scope="col" ng-click="filtro('id')">ID <i class="fas {{flechaId}}"></i></th>
-                <th scope="col" ng-click="filtro('nombre')">Nombre <i class="fas {{flechaN}}"></i></th>
-                <th scope="col"></th>
-                <th scope="col"></th>           
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="cancion in canciones | filter: busqueda | orderBy:columna:orden">
-                <td>{{cancion.id}}</td>
-                <td>{{cancion.nombre}}</td>
-                <td class="align-middle"><button class="btn btn-danger" ng-click="modificar({{cancion.id}})"><i class="fas fa-exchange-alt"></i></button></td>
-                <td class="align-middle"><button class="btn btn-danger" ng-click="eliminar({{cancion.id}})"><i class="fas fa-trash-alt"></i></button></td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="row mb-2">
+        <input type="text" ng-model="cancionEditar.nombre" placeholder="Inserte nueva cancion">
+        <button class="btn btn-primary" ng-click="((cancionEditar.id)?modificarCancion(cancionEditar.id):nuevaCancion(cancionEditar.nombre))" ng-disabled="(cancionEditar.nombre == undefined)?'disabled':((cancionEditar.nombre == '')?'disabled':'')">Guardar</button>
+        <componente-alert clase="{{mensaje.clase}}" texto="{{mensaje.texto}}"></componente-alert>
+    </div>
+    <div class="row">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col" ng-click="filtro('id')">ID <i class="fas {{flechaId}}"></i></th>
+                    <th scope="col" ng-click="filtro('nombre')">Nombre <i class="fas {{flechaN}}"></i></th>
+                    <th scope="col"></th>          
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="cancion in canciones | filter: busqueda | orderBy:columna:orden">
+                    <td>{{cancion.id}}</td>
+                    <td>{{cancion.nombre}}</td>
+                    <td class="align-middle">
+                        <button class="btn btn-success" ng-click="detalleCancion(cancion)"><i class="fas fa-pencil-alt"></i></button>
+                        <button class="btn btn-danger" ng-click="borrarCancion(cancion.id)"><i class="fas fa-trash-alt"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
 
 </div>

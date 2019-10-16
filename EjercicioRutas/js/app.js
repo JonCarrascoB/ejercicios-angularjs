@@ -1,4 +1,22 @@
-var app = angular.module('angularApp', [ 'ngRoute', 'ngSanitize']);
+var app = angular.module('angularApp', [ 'ngRoute', 'ngSanitize', 'jcs-autoValidate']);
+
+// error de validacion custom
+angular.module('angularApp')
+    .run([
+    'defaultErrorMessageResolver',
+    function (defaultErrorMessageResolver) {
+        
+        defaultErrorMessageResolver.setI18nFileRootPath('js/lib');
+        defaultErrorMessageResolver.setCulture('es-CO');
+
+        defaultErrorMessageResolver.getErrorMessages().then(function (errorMessages) {
+          errorMessages['caracterMin'] = 'El nombre debe tener más de {0} caracteres';
+          errorMessages['caracterMax'] = 'El nombre debe tener menos de {0} caracteres';
+        });
+    }
+]);
+
+
 
 /**
 * Servicio para Constantes

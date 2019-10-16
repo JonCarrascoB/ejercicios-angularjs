@@ -59,6 +59,12 @@ angular.
           "url":"#!/canciones",
           "active": false,
           "icono": "fas fa-music"
+        },
+        {
+          "nombre": "Formularios",
+          "url":"#!/formularios",
+          "active": false,
+          "icono": "fab fa-wpforms"
         }
       ];
     
