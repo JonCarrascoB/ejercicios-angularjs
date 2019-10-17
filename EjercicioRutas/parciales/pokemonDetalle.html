@@ -1,0 +1,37 @@
+<h1>Pokemon {{pokemon.name}}</h1>
+<div class="row">
+    <div class="col">
+        <img ng-src="{{pokemon.sprites.front_default}}" alt="{{pokemon.name}}"> 
+    </div>
+    <div class="col">
+        <h5>Caracteristicas:</h5>
+        <p>Peso: {{pokemon.weight}}</p>
+        <p>Altura: {{pokemon.height}}</p>
+        
+    </div>
+    <div class="col">
+        <h5>Tipos:</h5>
+        <ul ng-repeat="type in pokemon.types">
+            <li>{{type.type.name}}</li>
+        </ul>
+    </div>
+</div>
+<div class="row">
+    <h5>Stats:</h5>
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Level</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="stats in pokemon.stats">
+            <td>{{stats.stat.name}}</td>
+            <td>{{stats.base_stat}}</td>
+          </tr>
+        </tbody>
+      </table>
+</div>
+<p></p>
+<pre>{{pokemonDetalle | json}}</pre>

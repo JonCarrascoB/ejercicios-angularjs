@@ -1,5 +1,6 @@
-var app = angular.module('angularApp', [ 'ngRoute', 'ngSanitize', 'jcs-autoValidate']);
+var app = angular.module('angularApp', [ 'ngRoute', 'ngSanitize', /*'jcs-autoValidate'*/]);
 
+/*
 // error de validacion custom
 angular.module('angularApp')
     .run([
@@ -15,7 +16,7 @@ angular.module('angularApp')
         });
     }
 ]);
-
+*/
 
 
 /**

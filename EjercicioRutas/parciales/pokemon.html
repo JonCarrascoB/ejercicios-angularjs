@@ -1,0 +1,8 @@
+<h1>{{titulo}}</h1>
+
+<ul class="list-group" ng-repeat="pokemon in pokemons.results">
+    <li class="list-group-item">
+        <a ng-href="#!/pokemon/{{pokemon.name}}">{{pokemon.name}}</a>
+    </li>
+</ul>
+<pre>{{pokemons.results | json}}</pre>

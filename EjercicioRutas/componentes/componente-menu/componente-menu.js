@@ -65,6 +65,12 @@ angular.
           "url":"#!/formularios",
           "active": false,
           "icono": "fab fa-wpforms"
+        },
+        {
+          "nombre": "Pokemon",
+          "url":"#!/pokemon",
+          "active": false,
+          "icono": "fab fa-sketch"
         }
       ];
     
