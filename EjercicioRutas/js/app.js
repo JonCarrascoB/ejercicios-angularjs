@@ -33,13 +33,12 @@ app.constant("servicioConstantes", {"titulo": "Angular JS",
 /**
 * Providers
 */
-
 app.service("cancionProvider", CancionProvider);
+app.service("pokemonProvider", PokemonProvider);
 
 /**
 * Servicio para values
 */
-
 app.value("tamanyoInicialRectangulo",{
     ancho:5,
     alto:6
@@ -86,3 +85,29 @@ function Rectangulo2(tamanyoInicial) {
 // definir el servicio
 app.service("rectangulo2Service",['tamanyoInicialRectangulo',Rectangulo2]);
 app.service("rectanguloService",Rectangulo);
+
+
+// definir el filtro en la app
+app.filter('capitalizar',function(){
+    return function (cadena){
+        if( cadena != undefined && typeof cadena == 'string'){
+            return cadena.charAt(0).toUpperCase() + cadena.slice(1);
+        } else {
+            return "";
+        } 
+    }
+});
+
+app.filter('capitalizarMedio', function(){
+    return function(cadena, minLength, maxLength){
+        if(cadena != undefined && typeof cadena == 'string'){
+            if(angular.isNumber(minLength) && angular.isNumber(maxLength) && minLength >=0 && maxLength >= 0){
+                return cadena.slice(0,minLength) + cadena.slice(minLength, maxLength).toUpperCase() + cadena.slice(maxLength);
+            } else {
+                return "";
+            }
+        } else {
+            return "";
+        }
+    }
+})

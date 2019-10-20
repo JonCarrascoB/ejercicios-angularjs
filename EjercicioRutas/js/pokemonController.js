@@ -1,27 +1,34 @@
-app.controller('pokemonController', ['$scope', '$http',
-                                      function($scope,$http){
+app.controller('pokemonController', ['$scope', '$http','pokemonProvider',
+                                      function($scope,$http,pokemonProvider){
 
     console.trace('pokemonController');
-    $scope.titulo = "Pokemon Api";
-    $scope.pokemons = [];
-    $scope.pokeDetails = [];
-    $scope.ENDPOINT = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=10";
-    $scope.url="";
+    $scope.titulo = "pokemon api";
+    $scope.mensaje = "hoy es viernes!!!";
+    $scope.columna = "";
+    $scope.orden = "";
+    $scope.flechaN = "fa-minus";
+    $scope.flechaP = "fa-minus";
+    $scope.tipos = [];
+    
+    console.trace("pedimos a la API todos los pokemos");
+    $scope.pokemons = {};
+    pokemonProvider.listar().then( data => $scope.pokemons = data );
 
-
-    $http.get($scope.ENDPOINT).then(function(response){ // success antiguo
-        console.trace('peticion GET a %s data=%o', $scope.ENDPOINT, response);
-        $scope.pokemons = response.data;
-          
-    }, function(response){ // gestion de errores
-        console.warn('tenemos un ERROR response: %o', response);
-    });
+    // funciones
+    $scope.filtro = function(columna){
+        console.log("click orden por: %o", columna);
+        $scope.columna = columna;
+        $scope.orden = !$scope.orden;
+        if($scope.orden && columna == 'name'){
+            $scope.flechaN = "fa-sort-alpha-up-alt";
+        } else{
+            $scope.flechaN = "fa-sort-alpha-down";
+        }
+        if($scope.orden && columna == 'order'){
+            $scope.flechaP = "fa-sort-numeric-down-alt";
+        } else{
+            $scope.flechaP = "fa-sort-numeric-up";
+        }
+    };
      
-    
-    
-
-/* Funciones */   
-
-    
-
 }]);

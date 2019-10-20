@@ -1,8 +1,33 @@
-<h1>{{titulo}}</h1>
+<h1>{{titulo | capitalizar}}</h1>
 
-<ul class="list-group" ng-repeat="pokemon in pokemons.results">
-    <li class="list-group-item">
-        <a ng-href="#!/pokemon/{{pokemon.name}}">{{pokemon.name}}</a>
-    </li>
-</ul>
-<pre>{{pokemons.results | json}}</pre>
+<h3>{{mensaje | capitalizarMedio:7:10}}</h3>
+
+
+<form>
+    <div class="form-group">
+        <label for="busqueda">Buscar pokemon:</label>
+        <input type="text" class="form-control" ng-model="busqueda.name" id="busqueda" placeholder="Tu busqueda">
+      </div>
+</form>
+
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col" ng-click="filtro('order')">Pokedex <i class="fas {{flechaP}} "></th>
+        <th scope="col">Foto</th>
+        <th scope="col" ng-click="filtro('name')">Nombre <i class="fas {{flechaN}} "></i></th>
+        <th scope="col">Tipos</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="pokemon in pokemons | filter:busqueda | orderBy:columna:orden">
+        <td>{{pokemon.order}}</td>
+        <td><img ng-src="{{pokemon.sprites.front_default}}" alt="{{pokemon.name}}"></td>
+        <td><a ng-href="#!/pokemon/{{pokemon.name}}">{{pokemon.name | capitalizar}}</a></td>
+        <td><span ng-repeat="type in pokemon.types">{{type.type.name | capitalizar}}<br></span></td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- 
+    <pre>{{pokemons.results | json}}</pre>
+  -->
